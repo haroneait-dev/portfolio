@@ -16,8 +16,8 @@ import {
 import { GlassEffect, GlassFilter } from "@/components/ui/liquid-glass";
 import { profile, socials } from "@/lib/portfolio-data";
 
-const POSTER =
-  "https://images.unsplash.com/photo-1432251407527-504a6b4174a2?q=80&w=1480&auto=format&fit=crop";
+const WATER_BG =
+  'url("https://images.unsplash.com/photo-1432251407527-504a6b4174a2?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center';
 
 const CLAUDE_ICON =
   "https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/a13d1acfd046f503f987c1c95af582c8_low_res_Claude.png";
@@ -110,18 +110,14 @@ function TileVisual({ item, size = "md" }: { item: DockItem; size?: "md" | "sm" 
  */
 const WaterBackground = memo(function WaterBackground() {
   return (
-    <video
-      className="absolute inset-0 h-full w-full bg-slate-900 object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="auto"
-      poster={POSTER}
+    <div
+      className="absolute inset-0"
       aria-hidden
-    >
-      <source src="/video/sea.mp4" type="video/mp4" />
-    </video>
+      style={{
+        background: WATER_BG,
+        animation: "moveBackground 60s linear infinite",
+      }}
+    />
   );
 });
 
