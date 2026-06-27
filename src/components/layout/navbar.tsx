@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, Download } from "lucide-react";
+import { LinkedinIcon } from "@/components/icons/linkedin";
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
@@ -13,7 +14,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { SiteSearch } from "@/components/layout/site-search";
-import { navLinks, profile } from "@/lib/portfolio-data";
+import { navLinks, profile, socials } from "@/lib/portfolio-data";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -69,6 +70,20 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <SiteSearch tone={scrolled ? "light" : "dark"} />
+          <a
+            href={socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Profil LinkedIn"
+            className={cn(
+              "hidden h-9 w-9 items-center justify-center rounded-lg border transition-colors sm:inline-flex",
+              scrolled
+                ? "border-border text-muted-foreground hover:bg-accent hover:text-foreground"
+                : "border-white/20 text-slate-200 hover:bg-white/10"
+            )}
+          >
+            <LinkedinIcon className="h-4 w-4" />
+          </a>
           <Button
             render={<a href={profile.cvPath} download />}
             size="sm"

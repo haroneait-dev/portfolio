@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, ExternalLink } from "lucide-react";
+import { LinkedinIcon } from "@/components/icons/linkedin";
 import { profile, socials, navLinks } from "@/lib/portfolio-data";
 
 export function Footer() {
@@ -56,6 +57,17 @@ export function Footer() {
                 >
                   <Phone className="h-4 w-4" />
                   {profile.phone}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+                >
+                  <LinkedinIcon className="h-4 w-4" />
+                  LinkedIn
                 </a>
               </li>
               <li>

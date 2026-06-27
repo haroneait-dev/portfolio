@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/motion/reveal";
+import { ProjectGallery } from "@/components/project-gallery";
 import { projects, type Project } from "@/lib/portfolio-data";
 
 const categoryStyle: Record<Project["category"], { icon: LucideIcon; label: string }> = {
@@ -89,6 +90,10 @@ export function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {project.gallery ? (
+                    <ProjectGallery images={project.gallery} title={project.title} />
+                  ) : null}
                 </div>
               </Reveal>
             );

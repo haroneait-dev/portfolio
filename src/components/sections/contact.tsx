@@ -1,11 +1,22 @@
+import type { ComponentType } from "react";
 import { Mail, Phone, MapPin, Download, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
+import { LinkedinIcon } from "@/components/icons/linkedin";
 import { profile, socials } from "@/lib/portfolio-data";
 
-const contactItems = [
+type ContactItem = {
+  icon: ComponentType<{ className?: string }>;
+  label: string;
+  value: string;
+  href?: string;
+  external?: boolean;
+};
+
+const contactItems: ContactItem[] = [
   { icon: Mail, label: "Email", value: profile.email, href: socials.email },
   { icon: Phone, label: "Téléphone", value: profile.phone, href: socials.phone },
+  { icon: LinkedinIcon, label: "LinkedIn", value: "Voir mon profil", href: socials.linkedin, external: true },
   { icon: MapPin, label: "Localisation", value: profile.location, href: undefined },
 ];
 
@@ -80,7 +91,14 @@ export function Contact() {
                   </div>
                 );
                 return item.href ? (
-                  <a key={item.label} href={item.href} className="group block">
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="group block"
+                    {...(item.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
                     {content}
                   </a>
                 ) : (

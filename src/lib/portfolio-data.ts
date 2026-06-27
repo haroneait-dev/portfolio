@@ -24,6 +24,7 @@ export const profile = {
 export const socials = {
   email: `mailto:${profile.email}`,
   phone: `tel:${profile.phoneHref}`,
+  linkedin: "https://www.linkedin.com/in/harone-ait-ouakli-3478a83a1",
   claudeMastery: "https://claude-code-harone1.vercel.app",
   company: "https://samnetworksolutions.fr",
 };
@@ -102,6 +103,7 @@ export type Project = {
   category: "Réseau" | "Stage" | "Web";
   link?: { href: string; label: string };
   featured?: boolean;
+  gallery?: { src: string; caption: string }[];
 };
 
 export const projects: Project[] = [
@@ -142,6 +144,16 @@ export const projects: Project[] = [
     category: "Stage",
     link: { href: "https://samnetworksolutions.fr", label: "samnetworksolutions.fr" },
     featured: true,
+    gallery: [
+      { src: "/images/stage/baie-brassage.jpg", caption: "Baie de brassage — patch panel, switch & câblage RJ45" },
+      { src: "/images/stage/baie-brassage-config.jpg", caption: "Configuration sur site devant la baie de brassage" },
+      { src: "/images/stage/camera-dome.jpg", caption: "Installation d'une caméra IP dôme (intérieur)" },
+      { src: "/images/stage/camera-ptz.jpg", caption: "Caméra PTZ orientable" },
+      { src: "/images/stage/camera-exterieur.jpg", caption: "Caméra de vidéosurveillance (extérieur)" },
+      { src: "/images/stage/videosurveillance.jpg", caption: "Supervision des flux de vidéosurveillance (NVR)" },
+      { src: "/images/stage/supervision.jpg", caption: "Poste de supervision multi-écrans" },
+      { src: "/images/stage/equipements-reseau.jpg", caption: "Équipements réseau & alarme (Ajax, points d'accès)" },
+    ],
   },
   {
     slug: "claude-mastery",
