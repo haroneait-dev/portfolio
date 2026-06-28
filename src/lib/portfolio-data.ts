@@ -102,6 +102,7 @@ export type Project = {
   tags: string[];
   category: "Réseau" | "Stage" | "Web";
   link?: { href: string; label: string };
+  detailHref?: string;
   featured?: boolean;
   gallery?: { src: string; caption: string }[];
 };
@@ -124,12 +125,11 @@ export const projects: Project[] = [
     ],
     tags: ["Cisco Packet Tracer", "VLAN", "Routage", "DHCP", "DNS", "Sécurité"],
     category: "Réseau",
+    detailHref: "/gsb",
     featured: true,
     gallery: [
       { src: "/images/gsb/topologie.jpg", caption: "Topologie réseau du Labo GSB (Cisco Packet Tracer)" },
       { src: "/images/gsb/plan-adressage.jpg", caption: "Plan d'adressage IP, VLAN & ACL de filtrage inter-VLAN" },
-      { src: "/images/gsb/routeur-r1.jpg", caption: "Configuration du routeur R1 — routage inter-VLAN (802.1Q) & relais DHCP" },
-      { src: "/images/gsb/switchs-vlan.jpg", caption: "Configuration des switchs — affectation VLAN (accès & trunk)" },
     ],
   },
   {
@@ -149,6 +149,7 @@ export const projects: Project[] = [
     tags: ["Vidéosurveillance IP", "PTZ", "Câblage RJ45", "Switch", "Wi-Fi", "Web"],
     category: "Stage",
     link: { href: "https://samnetworksolutions.fr", label: "samnetworksolutions.fr" },
+    detailHref: "/stage",
     featured: true,
     gallery: [
       { src: "/images/stage/baie-brassage.jpg", caption: "Baie de brassage — patch panel, switch & câblage RJ45" },

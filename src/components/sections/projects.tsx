@@ -1,8 +1,10 @@
+import Link from "next/link";
 import {
   Network,
   Wrench,
   Globe,
   ArrowUpRight,
+  ArrowRight,
   Calendar,
   type LucideIcon,
 } from "lucide-react";
@@ -51,17 +53,28 @@ export function Projects() {
                     {project.period}
                   </p>
 
-                  {project.link ? (
-                    <a
-                      href={project.link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/5 px-3 py-1.5 text-sm font-semibold text-primary transition-colors hover:border-primary/40 hover:bg-primary/10"
-                    >
-                      {project.link.label}
-                      <ArrowUpRight className="h-4 w-4 shrink-0" />
-                    </a>
-                  ) : null}
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.detailHref ? (
+                      <Link
+                        href={project.detailHref}
+                        className="inline-flex items-center gap-2 rounded-lg bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                      >
+                        Voir la page dédiée
+                        <ArrowRight className="h-4 w-4 shrink-0" />
+                      </Link>
+                    ) : null}
+                    {project.link ? (
+                      <a
+                        href={project.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/5 px-3 py-1.5 text-sm font-semibold text-primary transition-colors hover:border-primary/40 hover:bg-primary/10"
+                      >
+                        {project.link.label}
+                        <ArrowUpRight className="h-4 w-4 shrink-0" />
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
 
                 {/* Right: details */}
