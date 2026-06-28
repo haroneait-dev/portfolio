@@ -236,8 +236,71 @@ export const interests = ["Football (sénior — C.A.P. Charenton)", "Réseaux &
 export const navLinks = [
   { href: "#a-propos", label: "À propos" },
   { href: "#competences", label: "Compétences" },
+  { href: "#synthese", label: "Synthèse" },
   { href: "#projets", label: "Projets" },
-  { href: "#certifications", label: "Certifications" },
+  { href: "#certifications", label: "Certifs" },
+  { href: "#veille", label: "Veille" },
   { href: "#parcours", label: "Parcours" },
   { href: "#contact", label: "Contact" },
 ];
+
+/** Tableau de synthèse — 3 à 5 compétences majeures SISR (attendu E5).
+ *  Version de départ basée sur le référentiel + tes projets — à remplacer/affiner
+ *  avec ton tableau Excel. */
+export const competencesSynthese: {
+  competence: string;
+  description: string;
+  contexte: string;
+}[] = [
+  {
+    competence: "Mise en œuvre d'architectures réseaux et systèmes",
+    description:
+      "Conception d'une infrastructure segmentée par VLAN, routage inter-VLAN et services DHCP/DNS, maquettée sous Cisco Packet Tracer.",
+    contexte: "Projet Labo GSB",
+  },
+  {
+    competence: "Gestion et administration des infrastructures",
+    description:
+      "Installation et configuration d'équipements réseau (switch, routeur, bornes Wi-Fi), câblage RJ45 et baie de brassage.",
+    contexte: "Stage — Sam Network Solutions",
+  },
+  {
+    competence: "Sécurisation des accès et des données",
+    description:
+      "Sécurisation des accès réseau, déploiement de vidéosurveillance IP et systèmes d'alarme, sensibilisation à la cybersécurité, conformité CNIL/RGPD.",
+    contexte: "Stage & Labo GSB",
+  },
+  {
+    competence: "Support et assistance aux utilisateurs",
+    description:
+      "Diagnostic et résolution d'incidents, maintenance matérielle (PC), conseil et accompagnement des clients sur leurs solutions.",
+    contexte: "Stage — Sam Network Solutions",
+  },
+  {
+    competence: "Veille technologique et documentation",
+    description:
+      "Suivi des évolutions de l'IA générative (écosystème Claude) et production de documentation/ressources techniques.",
+    contexte: "Projet perso — Claude Mastery",
+  },
+];
+
+/** Veille technologique (attendu E5) — adossée au projet Claude Mastery. */
+export const veille = {
+  subject: "L'IA générative & l'écosystème Claude",
+  intro:
+    "Ma veille porte sur l'intelligence artificielle générative, et plus particulièrement l'écosystème Claude (Anthropic) : un domaine qui évolue très rapidement (nouveaux modèles, agents, « skills », MCP, outils). Suivre cette actualité est indispensable pour maintenir et enrichir mon site Claude Mastery.",
+  points: [
+    "Nouveaux modèles & capacités (raisonnement, agents, fenêtres de contexte)",
+    "Agents & automatisation (MCP, outils, orchestration)",
+    "Bonnes pratiques de prompting et de sécurité des IA",
+    "Cas d'usage concrets pour l'IT, les réseaux et la cybersécurité",
+  ],
+  sources: [
+    "Documentation & blog d'Anthropic",
+    "Changelogs & notes de version",
+    "Communautés (Reddit r/ClaudeAI, X, GitHub)",
+    "Hacker News & newsletters spécialisées IA",
+  ],
+  contribution:
+    "Je centralise et vulgarise ces connaissances (méthodes, skills, workflows) sur Claude Mastery, un site que je tiens à jour pour la communauté.",
+};

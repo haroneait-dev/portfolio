@@ -4,8 +4,10 @@ import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
+import { Synthese } from "@/components/sections/synthese";
 import { Projects } from "@/components/sections/projects";
 import { Certifications } from "@/components/sections/certifications";
+import { Veille } from "@/components/sections/veille";
 import { Timeline } from "@/components/sections/timeline";
 import { Contact } from "@/components/sections/contact";
 
@@ -23,8 +25,10 @@ export default function PortfolioPage() {
         <Hero />
         <About />
         <Skills />
+        <Synthese />
         <Projects />
         <Certifications />
+        <Veille />
         <Timeline />
         <Contact />
       </main>

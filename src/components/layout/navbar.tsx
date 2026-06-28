@@ -50,7 +50,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -97,7 +97,7 @@ export function Navbar() {
           <Sheet>
             <SheetTrigger
               render={
-                <Button variant="outline" size="icon" className="md:hidden" aria-label="Menu" />
+                <Button variant="outline" size="icon" className="lg:hidden" aria-label="Menu" />
               }
             >
               <Menu className="h-5 w-5" />

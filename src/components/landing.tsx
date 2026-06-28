@@ -4,9 +4,7 @@ import { memo, useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Wifi,
-  Cctv,
-  ShieldCheck,
+  Briefcase,
   Mail,
   ArrowRight,
   ArrowUpRight,
@@ -37,44 +35,25 @@ const dockItems: DockItem[] = [
   {
     label: "Claude Mastery",
     description:
-      "Plateforme web que j'ai conçue pour apprendre à maîtriser l'IA Claude : méthodes, « skills », workflows et ressources, organisés pour la communauté.",
+      "Plateforme web que j'ai conçue pour apprendre à maîtriser l'IA Claude : méthodes, « skills », workflows et ressources, organisés pour la communauté. C'est aussi le support de ma veille technologique.",
     href: socials.claudeMastery,
     cta: "Visiter le site",
     external: true,
     img: CLAUDE_ICON,
   },
   {
-    label: "Projets réseaux",
+    label: "Mon stage",
     description:
-      "Mes projets en réseaux & systèmes : infrastructure segmentée par VLAN (Labo GSB), routage inter-VLAN, DHCP/DNS et configuration d'équipements.",
-    href: "/portfolio#projets",
-    cta: "Voir la section",
-    Icon: Wifi,
-    gradient: "from-blue-500 to-cyan-400",
-  },
-  {
-    label: "Vidéosurveillance — Stage",
-    description:
-      "Mon stage chez Sam Network Solutions : installation de vidéosurveillance IP/PTZ, câblage & baie de brassage, et développement du site web de l'entreprise.",
-    href: socials.company,
-    cta: "Visiter le site",
-    external: true,
-    Icon: Cctv,
-    gradient: "from-slate-600 to-slate-800",
-  },
-  {
-    label: "Certifications",
-    description:
-      "Ma certification en cybersécurité & conformité : CNIL (protection des données personnelles & RGPD).",
-    href: "/portfolio#certifications",
-    cta: "Voir la section",
-    Icon: ShieldCheck,
-    gradient: "from-emerald-500 to-teal-400",
+      "Ma page dédiée au stage chez Sam Network Solutions : présentation de l'entreprise, missions, compétences développées et photos (baie de brassage, caméras IP/PTZ, supervision…).",
+    href: "/stage",
+    cta: "Voir la page du stage",
+    Icon: Briefcase,
+    gradient: "from-amber-500 to-orange-500",
   },
   {
     label: "Contact",
     description:
-      "Je recherche une alternance en réseaux & administration systèmes. Retrouve mon email, mon téléphone et mon CV à télécharger.",
+      "Je recherche une alternance en réseaux & administration systèmes. Retrouve mon email, mon téléphone, mon LinkedIn et mon CV à télécharger.",
     href: "/portfolio#contact",
     cta: "Me contacter",
     Icon: Mail,
