@@ -141,7 +141,7 @@ export default function StagePage() {
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="h-4 w-4 text-primary" />
-                Île-de-France
+                Paris
               </span>
             </p>
           </div>
@@ -159,23 +159,23 @@ export default function StagePage() {
               <div className="rounded-2xl border border-border bg-card p-6 sm:col-span-2">
                 <p className="text-sm leading-relaxed text-foreground/90">
                   <strong className="text-foreground">Sam Network Solutions</strong> est une
-                  entreprise spécialisée dans les solutions{" "}
-                  <strong className="text-foreground">informatiques et de sécurité électronique</strong> :
-                  réseaux, vidéosurveillance (caméras IP), contrôle d&apos;accès et systèmes
-                  d&apos;alarme. Elle conseille, installe et maintient ces solutions chez ses
-                  clients professionnels et particuliers.
+                  entreprise informatique basée à Paris, spécialisée dans le{" "}
+                  <strong className="text-foreground">réseau, la sécurité et le dépannage IT</strong>.
+                  Elle conseille, installe et maintient des solutions réseau et de sécurité
+                  (notamment vidéosurveillance IP et systèmes d&apos;alarme) chez ses clients
+                  professionnels et particuliers.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-1">
                 <div className="rounded-xl border border-border bg-card p-4">
                   <p className="text-xs uppercase tracking-wider text-muted-foreground">Domaine</p>
                   <p className="mt-1 text-sm font-semibold text-foreground">
-                    Réseaux & sécurité électronique
+                    Réseau, sécurité & dépannage IT
                   </p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                   <p className="text-xs uppercase tracking-wider text-muted-foreground">Portée</p>
-                  <p className="mt-1 text-sm font-semibold text-foreground">Locale (Île-de-France)</p>
+                  <p className="mt-1 text-sm font-semibold text-foreground">Locale — Paris</p>
                 </div>
               </div>
             </Reveal>

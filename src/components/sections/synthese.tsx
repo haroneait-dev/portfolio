@@ -1,7 +1,12 @@
-import { Table2 } from "lucide-react";
+import { Fragment } from "react";
+import { Check } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/motion/reveal";
-import { competencesSynthese } from "@/lib/portfolio-data";
+import {
+  syntheseColumns,
+  syntheseRows,
+  syntheseMeta,
+} from "@/lib/portfolio-data";
 
 export function Synthese() {
   return (
@@ -9,50 +14,98 @@ export function Synthese() {
       <div className="mx-auto w-full max-w-6xl px-6">
         <SectionHeading
           eyebrow="Tableau de synthèse"
-          title="Mes compétences majeures (option SISR)"
-          description="Synthèse des compétences clés développées en formation, en auto-formation et en stage, en lien avec le référentiel SISR."
+          title="Réalisations professionnelles & compétences"
+          description="Document officiel de l'épreuve E5 (BTS SIO) — mes réalisations mises en regard des compétences du référentiel SISR."
         />
 
-        <Reveal className="mt-10 overflow-hidden rounded-2xl border border-border shadow-sm">
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-left text-sm">
-              <thead>
-                <tr className="bg-primary text-primary-foreground">
-                  <th className="border-r border-primary-foreground/20 px-4 py-3 font-semibold">
-                    Compétence
-                  </th>
-                  <th className="border-r border-primary-foreground/20 px-4 py-3 font-semibold">
-                    Description & mise en œuvre
-                  </th>
-                  <th className="px-4 py-3 font-semibold">Contexte</th>
-                </tr>
-              </thead>
-              <tbody>
-                {competencesSynthese.map((row, i) => (
-                  <tr
-                    key={row.competence}
-                    className={i % 2 === 0 ? "bg-card" : "bg-muted/50"}
+        {/* En-tête officiel */}
+        <Reveal className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 rounded-xl border border-border bg-card px-5 py-4 text-sm">
+          <span className="font-semibold text-foreground">{syntheseMeta.diplome}</span>
+          <span className="text-muted-foreground">{syntheseMeta.session}</span>
+          <span className="text-muted-foreground">
+            Candidat : <span className="font-medium text-foreground">{syntheseMeta.nom}</span>
+          </span>
+          <span className="text-muted-foreground">
+            Centre : <span className="font-medium text-foreground">{syntheseMeta.centre}</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 font-semibold text-primary">
+            <Check className="h-3.5 w-3.5" />
+            Option {syntheseMeta.option}
+          </span>
+        </Reveal>
+
+        {/* Matrice */}
+        <Reveal className="mt-6 overflow-x-auto rounded-2xl border border-border shadow-sm">
+          <table className="w-full min-w-[60rem] border-collapse text-left">
+            <thead>
+              <tr>
+                <th className="sticky left-0 z-10 w-64 bg-primary px-3 py-3 align-bottom text-sm font-semibold text-primary-foreground">
+                  Réalisations professionnelles
+                </th>
+                {syntheseColumns.map((col) => (
+                  <th
+                    key={col.key}
+                    title={col.bullets.join(" • ")}
+                    className="border-l border-primary-foreground/15 bg-primary px-2 py-2 align-top text-primary-foreground"
                   >
-                    <td className="border-t border-r border-border px-4 py-3 align-top font-semibold text-foreground">
-                      <span className="flex items-start gap-2">
-                        <Table2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        {row.competence}
-                      </span>
-                    </td>
-                    <td className="border-t border-r border-border px-4 py-3 align-top text-muted-foreground">
-                      {row.description}
-                    </td>
-                    <td className="border-t border-border px-4 py-3 align-top">
-                      <span className="inline-block rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
-                        {row.contexte}
-                      </span>
+                    <p className="text-[11px] font-bold leading-tight">{col.title}</p>
+                    <ul className="mt-1.5 hidden space-y-0.5 md:block">
+                      {col.bullets.map((b) => (
+                        <li
+                          key={b}
+                          className="text-[9px] leading-tight text-primary-foreground/70"
+                        >
+                          ▸ {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {syntheseRows.map((grp) => (
+                <Fragment key={grp.group}>
+                  <tr>
+                    <td
+                      colSpan={1 + syntheseColumns.length}
+                      className="border-t border-border bg-primary/10 px-3 py-2 text-sm font-semibold text-primary"
+                    >
+                      {grp.group}
                     </td>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                  {grp.items.map((item, i) => (
+                    <tr key={item.label} className={i % 2 === 0 ? "bg-card" : "bg-muted/40"}>
+                      <td className="sticky left-0 z-10 border-t border-border bg-inherit px-3 py-2.5 align-top text-xs leading-relaxed text-foreground/90">
+                        {item.label}
+                      </td>
+                      {syntheseColumns.map((col) => {
+                        const active = item.marks.includes(col.key);
+                        return (
+                          <td
+                            key={col.key}
+                            className="border-l border-t border-border px-2 py-2.5 text-center align-middle"
+                          >
+                            {active ? (
+                              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                                <Check className="h-3 w-3" />
+                              </span>
+                            ) : null}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </Fragment>
+              ))}
+            </tbody>
+          </table>
         </Reveal>
+
+        <p className="mt-3 text-xs text-muted-foreground">
+          Chaque ✓ indique une compétence du référentiel SISR mobilisée par la réalisation. Survole
+          un en-tête de colonne pour voir le détail des activités.
+        </p>
       </div>
     </section>
   );
