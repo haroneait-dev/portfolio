@@ -49,7 +49,7 @@ export function Synthese() {
                     className="border-l border-primary-foreground/15 bg-primary px-2 py-2 align-top text-primary-foreground"
                   >
                     <p className="text-[11px] font-bold leading-tight">{col.title}</p>
-                    <ul className="mt-1.5 hidden space-y-0.5 md:block">
+                    <ul className="mt-1.5 space-y-0.5">
                       {col.bullets.map((b) => (
                         <li
                           key={b}
@@ -103,8 +103,8 @@ export function Synthese() {
         </Reveal>
 
         <p className="mt-3 text-xs text-muted-foreground">
-          Chaque ✓ indique une compétence du référentiel SISR mobilisée par la réalisation. Survole
-          un en-tête de colonne pour voir le détail des activités.
+          Chaque ✓ indique une compétence du référentiel SISR mobilisée par la réalisation. Le détail
+          des activités est listé sous chaque compétence (en-têtes de colonnes).
         </p>
       </div>
     </section>
