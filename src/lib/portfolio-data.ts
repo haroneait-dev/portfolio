@@ -125,6 +125,12 @@ export const projects: Project[] = [
     tags: ["Cisco Packet Tracer", "VLAN", "Routage", "DHCP", "DNS", "Sécurité"],
     category: "Réseau",
     featured: true,
+    gallery: [
+      { src: "/images/gsb/topologie.jpg", caption: "Topologie réseau du Labo GSB (Cisco Packet Tracer)" },
+      { src: "/images/gsb/plan-adressage.jpg", caption: "Plan d'adressage IP, VLAN & ACL de filtrage inter-VLAN" },
+      { src: "/images/gsb/routeur-r1.jpg", caption: "Configuration du routeur R1 — routage inter-VLAN (802.1Q) & relais DHCP" },
+      { src: "/images/gsb/switchs-vlan.jpg", caption: "Configuration des switchs — affectation VLAN (accès & trunk)" },
+    ],
   },
   {
     slug: "stage-sam",
