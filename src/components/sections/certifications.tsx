@@ -23,7 +23,7 @@ export function Certifications() {
               <Reveal
                 key={cert.name}
                 delayIndex={i}
-                className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+                className="surface-card surface-card-hover relative overflow-hidden p-6"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">

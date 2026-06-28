@@ -18,7 +18,7 @@ export function Veille() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {/* Thèmes suivis */}
-          <Reveal className="rounded-2xl border border-border bg-card p-6">
+          <Reveal className="surface-card p-6">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Radar className="h-5 w-5" />
@@ -36,7 +36,7 @@ export function Veille() {
           </Reveal>
 
           {/* Sources */}
-          <Reveal delayIndex={1} className="rounded-2xl border border-border bg-card p-6">
+          <Reveal delayIndex={1} className="surface-card p-6">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Rss className="h-5 w-5" />
@@ -54,7 +54,7 @@ export function Veille() {
           </Reveal>
 
           {/* Contribution */}
-          <Reveal delayIndex={2} className="flex flex-col rounded-2xl border border-primary/30 bg-primary/5 p-6">
+          <Reveal delayIndex={2} className="flex flex-col rounded-3xl border border-primary/30 bg-primary/5 p-6">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <BookOpen className="h-5 w-5" />

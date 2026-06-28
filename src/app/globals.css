@@ -66,17 +66,18 @@
   --accent: oklch(0.96 0.02 260);
   --accent-foreground: oklch(0.32 0.08 260);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.915 0.008 260);
-  --input: oklch(0.915 0.008 260);
+  --border: oklch(0.932 0.005 260);
+  --input: oklch(0.932 0.005 260);
   --ring: oklch(0.52 0.21 260);
   --brand: oklch(0.52 0.21 260);
   --brand-foreground: oklch(0.985 0 0);
+  --card-soft: oklch(0.995 0.002 260);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
+  --radius: 0.875rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -150,6 +151,32 @@
   .mask-fade-b {
     -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+
+  /* Refined "sober" card surface (inspired by Once UI / magic-portfolio) */
+  .surface-card {
+    background-color: var(--card);
+    border: 1px solid color-mix(in oklch, var(--border) 75%, transparent);
+    border-radius: 1.5rem;
+    box-shadow:
+      0 1px 2px rgba(2, 6, 23, 0.04),
+      0 10px 34px -18px rgba(2, 6, 23, 0.12);
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+  }
+  .surface-card-hover:hover {
+    border-color: color-mix(in oklch, var(--primary) 28%, transparent);
+    box-shadow:
+      0 1px 2px rgba(2, 6, 23, 0.05),
+      0 18px 50px -22px color-mix(in oklch, var(--primary) 30%, transparent);
+    transform: translateY(-3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .surface-card-hover:hover {
+      transform: none;
+    }
   }
 }
 

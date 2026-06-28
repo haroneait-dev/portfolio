@@ -46,7 +46,7 @@ export function About() {
 
           {/* Soft skills + langues */}
           <div className="space-y-6 lg:col-span-2">
-            <Reveal delayIndex={1} className="rounded-2xl border border-border bg-card p-6">
+            <Reveal delayIndex={1} className="surface-card p-6">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 Qualités
               </h3>
@@ -60,7 +60,7 @@ export function About() {
               </ul>
             </Reveal>
 
-            <Reveal delayIndex={2} className="rounded-2xl border border-border bg-card p-6">
+            <Reveal delayIndex={2} className="surface-card p-6">
               <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 <Languages className="h-4 w-4" />
                 Langues

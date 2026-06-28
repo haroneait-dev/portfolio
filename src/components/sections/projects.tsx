@@ -33,11 +33,8 @@ export function Projects() {
           {projects.map((project, i) => {
             const { icon: Icon, label } = categoryStyle[project.category];
             return (
-              <Reveal
-                key={project.slug}
-                delayIndex={i}
-                className="group grid gap-6 rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 sm:p-8 lg:grid-cols-3"
-              >
+              <Reveal key={project.slug} delayIndex={i}>
+                <article className="group grid gap-6 surface-card surface-card-hover p-6 sm:p-8 lg:grid-cols-3">
                 {/* Left: header */}
                 <div className="lg:col-span-1">
                   <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
@@ -108,6 +105,7 @@ export function Projects() {
                     <ProjectGallery images={project.gallery} title={project.title} />
                   ) : null}
                 </div>
+                </article>
               </Reveal>
             );
           })}
