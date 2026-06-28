@@ -8,13 +8,14 @@ import { useEffect, useState } from "react";
  * Conserve un suffixe éventuel (ex. "3+").
  */
 export function CountUp({ value, className }: { value: string; className?: string }) {
-  const match = value.match(/^(\d+)(.*)$/);
-  const target = match ? parseInt(match[1], 10) : 0;
-  const suffix = match ? match[2] : "";
+  const m = /^(\d+)(.*)$/.exec(value);
+  const isNumeric = m !== null;
+  const target = m ? parseInt(m[1], 10) : 0;
+  const suffix = m ? m[2] : "";
   const [n, setN] = useState(0);
 
   useEffect(() => {
-    if (!match) return;
+    if (!isNumeric) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
       setN(target);
@@ -37,9 +38,10 @@ export function CountUp({ value, className }: { value: string; className?: strin
       clearTimeout(start);
       cancelAnimationFrame(raf);
     };
-  }, [match, target]);
+    // Dépendances stables (primitifs) → l'effet ne s'exécute qu'une fois.
+  }, [target, isNumeric]);
 
-  if (!match) return <span className={className}>{value}</span>;
+  if (!isNumeric) return <span className={className}>{value}</span>;
   return (
     <span className={className}>
       {n}
