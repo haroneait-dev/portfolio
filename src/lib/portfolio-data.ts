@@ -127,10 +127,6 @@ export const projects: Project[] = [
     category: "Réseau",
     detailHref: "/gsb",
     featured: true,
-    gallery: [
-      { src: "/images/gsb/topologie.jpg", caption: "Topologie réseau du Labo GSB (Cisco Packet Tracer)" },
-      { src: "/images/gsb/plan-adressage.jpg", caption: "Plan d'adressage IP, VLAN & ACL de filtrage inter-VLAN" },
-    ],
   },
   {
     slug: "stage-sam",

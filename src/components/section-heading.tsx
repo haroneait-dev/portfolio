@@ -21,9 +21,11 @@ export function SectionHeading({
           : "max-w-2xl"
       }
     >
-      <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-primary">
+      <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest">
         <span className="h-px w-6 bg-primary" aria-hidden />
-        {eyebrow}
+        <span className="bg-gradient-to-r from-primary via-blue-400 to-primary bg-clip-text text-transparent animate-text-gradient">
+          {eyebrow}
+        </span>
       </span>
       <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         {title}

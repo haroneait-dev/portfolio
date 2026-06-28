@@ -3,6 +3,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
+import { TechMarquee } from "@/components/tech-marquee";
 import { Skills } from "@/components/sections/skills";
 import { Synthese } from "@/components/sections/synthese";
 import { Projects } from "@/components/sections/projects";
@@ -24,6 +25,7 @@ export default function PortfolioPage() {
       <main className="flex-1">
         <Hero />
         <About />
+        <TechMarquee />
         <Skills />
         <Synthese />
         <Projects />

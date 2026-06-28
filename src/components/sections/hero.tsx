@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Download, MapPin, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InteractiveCanvas } from "@/components/ui/canvas";
+import { CountUp } from "@/components/count-up";
 import { profile } from "@/lib/portfolio-data";
 
 const fadeUp = {
@@ -61,7 +62,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-6 max-w-4xl text-balance text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
+          className="mt-6 max-w-4xl bg-gradient-to-r from-white via-blue-300 to-white bg-clip-text text-balance text-5xl font-bold tracking-tight text-transparent animate-text-gradient sm:text-6xl lg:text-7xl"
         >
           {profile.fullName}
         </motion.h1>
@@ -165,7 +166,9 @@ export function Hero() {
               className="rounded-xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-sm"
             >
               <dt className="text-sm text-slate-400">{stat.label}</dt>
-              <dd className="mt-1 text-2xl font-bold text-white">{stat.value}</dd>
+              <dd className="mt-1 text-2xl font-bold text-white">
+                <CountUp value={stat.value} />
+              </dd>
             </div>
           ))}
         </motion.dl>
