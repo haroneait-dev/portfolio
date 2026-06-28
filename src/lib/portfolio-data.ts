@@ -18,7 +18,7 @@ export const profile = {
     "Recherche une alternance en réseaux & administration systèmes — rythme 1 semaine en formation / 1 semaine en entreprise, dès que possible.",
   pitch:
     "Passionné par les réseaux et l'administration systèmes, je me forme en BTS SIO option SISR à l'IPSSI. De la conception d'architectures segmentées par VLAN à l'installation de vidéosurveillance IP sur le terrain, j'aime concevoir, déployer et sécuriser des infrastructures fiables.",
-  badges: ["Réseaux", "Administration système", "Cybersécurité", "Permis en cours"],
+  badges: ["Réseaux", "Administration système", "Cybersécurité", "Permis B"],
 };
 
 export const socials = {
