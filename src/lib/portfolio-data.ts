@@ -329,33 +329,27 @@ export const syntheseRows: SyntheseRow[] = [
     group: "Réalisation en cours de formation",
     items: [
       {
-        label:
-          "Analyse des besoins et recueil des exigences réseau du site parisien du laboratoire pharmaceutique GSB en vue d'une refonte de l'infrastructure",
+        label: "Analyse des besoins réseau (refonte infrastructure GSB)",
         marks: ["C", "F"],
       },
       {
-        label:
-          "Conception d'une architecture réseau segmentée par VLAN adaptée aux contraintes de sécurité et d'organisation du laboratoire GSB",
+        label: "Conception d'une architecture réseau segmentée par VLAN",
         marks: ["C", "F"],
       },
       {
-        label:
-          "Réalisation d'une maquette réseau fonctionnelle sous Cisco Packet Tracer modélisant l'architecture VLAN et le routage inter-VLAN",
+        label: "Maquette réseau VLAN sous Cisco Packet Tracer",
         marks: ["C", "F", "G"],
       },
       {
-        label:
-          "Configuration du routage inter-VLAN et mise en place des règles de communication entre les différents segments du réseau GSB",
+        label: "Configuration du routage inter-VLAN",
         marks: ["C", "F", "G"],
       },
       {
-        label:
-          "Déploiement et configuration des services réseau DHCP et DNS pour l'attribution automatique des adresses IP et la résolution de noms",
+        label: "Déploiement des services DHCP et DNS",
         marks: ["C", "F", "G"],
       },
       {
-        label:
-          "Sécurisation des accès réseau par filtrage et contrôle des flux entre VLAN afin de protéger les données sensibles du laboratoire GSB",
+        label: "Sécurisation des accès : filtrage des flux inter-VLAN",
         marks: ["C", "D", "F", "G"],
       },
     ],
@@ -364,28 +358,23 @@ export const syntheseRows: SyntheseRow[] = [
     group: "Réalisations en milieu professionnel — 1ʳᵉ année",
     items: [
       {
-        label:
-          "Conseil, analyse des besoins et vente de solutions informatiques et de sécurité adaptées aux clients de l'entreprise",
+        label: "Conseil client et vente de solutions IT & sécurité",
         marks: ["E", "H"],
       },
       {
-        label:
-          "Installation et configuration d'infrastructures de vidéosurveillance IP : pose de caméras, paramétrage des NVR et intégration au réseau client",
+        label: "Installation de vidéosurveillance IP (caméras, NVR, réseau)",
         marks: ["C", "G"],
       },
       {
-        label:
-          "Conception, développement et mise en ligne du site web de l'entreprise incluant la modélisation de la base de données et l'hébergement en production",
+        label: "Développement et mise en ligne du site web (BDD + hébergement)",
         marks: ["E", "F", "G", "H"],
       },
       {
-        label:
-          "Interventions terrain : câblage RJ45, installation et configuration de switchs, de bornes Wi-Fi et de caméras IP sur sites clients",
+        label: "Interventions terrain : câblage RJ45, switchs, Wi-Fi, caméras IP",
         marks: ["C", "G"],
       },
       {
-        label:
-          "Sensibilisation des utilisateurs à la cybersécurité à travers les fonctionnalités intégrées au site web de l'entreprise (bonnes pratiques, alertes, contenus pédagogiques)",
+        label: "Sensibilisation des utilisateurs à la cybersécurité",
         marks: ["D", "E"],
       },
     ],
