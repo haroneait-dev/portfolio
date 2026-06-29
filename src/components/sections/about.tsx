@@ -35,10 +35,30 @@ export function About() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Ma formation</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    BTS SIO option SISR à l&apos;École IPSSI — Solutions d&apos;Infrastructure,
-                    Systèmes et Réseaux.
-                  </p>
+                  <ul className="mt-2 space-y-3">
+                    <li>
+                      <p className="text-sm font-medium text-foreground">
+                        BTS SIO option SISR{" "}
+                        <span className="font-normal text-muted-foreground">
+                          · École IPSSI · depuis 2025
+                        </span>
+                      </p>
+                      <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">
+                        Solutions d&apos;Infrastructure, Systèmes et Réseaux.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="text-sm font-medium text-foreground">
+                        Baccalauréat général{" "}
+                        <span className="font-normal text-muted-foreground">
+                          · Lycée Eugène Delacroix · 2022–2025
+                        </span>
+                      </p>
+                      <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">
+                        Spécialités Mathématiques et Physique-Chimie.
+                      </p>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
