@@ -159,6 +159,25 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "eureka-btp",
+    title: "Eureka BTP — Site web d'entreprise",
+    context: "Projet web · Client réel (secteur BTP)",
+    period: "2026",
+    summary:
+      "Conception et développement du site web d'Eureka BTP, entreprise familiale spécialisée dans la réparation et le SAV de matériel béton pour les professionnels du BTP. Site vitrine complet avec base de données et formulaire de devis.",
+    highlights: [
+      "Site vitrine complet : accueil, atelier & SAV, catalogue de pièces, témoignages",
+      "Développement front-end (HTML / CSS / JavaScript) et mise en page responsive",
+      "Formulaire de devis relié à une base de données PostgreSQL (Supabase)",
+      "Mise en ligne et hébergement continu sur Vercel",
+      "Valorisation de la présence en ligne de l'entreprise (référencement)",
+    ],
+    tags: ["HTML / CSS", "JavaScript", "Supabase", "PostgreSQL", "Vercel", "SEO"],
+    category: "Web",
+    link: { href: "https://eurekabtp-site.vercel.app", label: "Voir le site live" },
+    featured: true,
+  },
+  {
     slug: "claude-mastery",
     title: "Claude Mastery — Plateforme d'apprentissage",
     context: "Projet personnel",
