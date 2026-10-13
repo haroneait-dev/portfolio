@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1450 1000" width="1450" height="1000">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#18181b"/><stop offset="1" stop-color="#09090b"/></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.45" r="0.55"><stop offset="0" stop-color="#94a3b8" stop-opacity="0.18"/><stop offset="1" stop-color="#94a3b8" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="2"/></pattern>
+</defs>
+<rect width="1450" height="1000" fill="url(#bg)"/>
+<rect width="1450" height="1000" fill="url(#grid)"/>
+<rect width="1450" height="1000" fill="url(#glow)"/>
+<g fill="none" stroke="#94a3b8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"><rect x="395.0" y="240.0" width="660" height="440" rx="30"/><path d="M395.0 350.0 H1055.0 M395.0 460.0 H1055.0 M395.0 570.0 H1055.0 M615.0 240.0 V680.0"/><path d="M745.0 405.0 l25 25 l50 -50 M895.0 515.0 l25 25 l50 -50" stroke-width="22"/></g>
+<text x="80" y="920" font-family="Helvetica, Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="6" fill="#a1a1aa">DOCUMENTATION E5</text>
+</svg>

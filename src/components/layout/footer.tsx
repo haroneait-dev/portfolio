@@ -72,13 +72,13 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={socials.claudeMastery}
+                  href={socials.bibliIa}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
                 >
                   <ExternalLink className="h-4 w-4" />
-                  Claude Mastery
+                  Bibli IA
                 </a>
               </li>
             </ul>

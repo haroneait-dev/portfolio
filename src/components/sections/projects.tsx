@@ -26,7 +26,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Projets"
           title="Des réalisations concrètes, du labo au terrain"
-          description="Projets pédagogiques, missions de stage et initiatives personnelles qui illustrent mon parcours en réseaux et systèmes."
+          description="Projet de formation, missions de stage, site client et projet personnel : des réalisations en réseaux, systèmes et développement web."
         />
 
         <div className="mt-12 space-y-6">

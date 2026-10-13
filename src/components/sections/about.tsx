@@ -23,7 +23,7 @@ export function About() {
                   <Target className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Mon objectif</h3>
+                  <h3 className="font-semibold text-foreground">Actuellement</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                     {profile.availability}
                   </p>

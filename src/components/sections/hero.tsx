@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { profile } from "@/lib/portfolio-data";
 
 const stats = [
-  { value: "5", label: "Réalisations présentées" },
+  { value: "4", label: "Projets présentés" },
   { value: "2", label: "Expériences en entreprise" },
   { value: "1", label: "Certification" },
   { value: "SISR", label: "BTS SIO" },

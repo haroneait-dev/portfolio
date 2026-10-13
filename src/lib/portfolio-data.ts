@@ -17,15 +17,13 @@ export const profile = {
   availability:
     "En alternance chez PARROT : administration systèmes Linux & Windows, préparation de postes et gestion des comptes utilisateurs.",
   pitch:
-    "Passionné par les réseaux et l'administration systèmes, je me forme en BTS SIO option SISR à l'IPSSI. De la conception d'architectures segmentées par VLAN à l'installation de vidéosurveillance IP sur le terrain, j'aime concevoir, déployer et sécuriser des infrastructures fiables.",
-  badges: ["Réseaux", "Administration système", "Cybersécurité", "Permis B"],
+    "Passionné par les systèmes et les réseaux, je me forme en BTS SIO option SISR à l'IPSSI et je suis technicien helpdesk en alternance chez PARROT. Du support aux utilisateurs à l'administration de postes Linux et Windows, en passant par la conception d'un réseau segmenté par VLAN et l'installation de vidéosurveillance IP, j'aime rendre les infrastructures fiables et faciles à utiliser.",
 };
 
 export const socials = {
   email: `mailto:${profile.email}`,
   phone: `tel:${profile.phoneHref}`,
   linkedin: "https://www.linkedin.com/in/harone-ait-ouakli-3478a83a1",
-  claudeMastery: "https://claude-code-harone1.vercel.app",
   bibliIa: "https://claude-mastery-saas.vercel.app",
   company: "https://samnetworksolutions.fr",
 };
@@ -84,7 +82,6 @@ export const skillCategories: SkillCategory[] = [
       "Câblage RJ45 & baie de brassage",
       "Configuration switch & routeur",
       "Bornes Wi-Fi",
-      "Cisco Packet Tracer",
     ],
   },
 ];
@@ -183,20 +180,21 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "claude-mastery",
-    title: "Claude Mastery — Plateforme d'apprentissage",
+    slug: "bibli-ia",
+    title: "Bibli IA — SaaS de fiches et packs pour l'IA",
     context: "Projet personnel",
     period: "2026",
     summary:
-      "Site web personnel pour apprendre à maîtriser Claude : méthodes, skills, bonnes pratiques et ressources, le tout référencé et organisé pour la communauté.",
+      "Application SaaS qui aide à se faire comprendre par Claude ou ChatGPT : fiches pratiques, exemples vérifiables et packs de contexte prêts à adapter. Pas encore lancée publiquement.",
     highlights: [
-      "Conception et mise en ligne d'une plateforme web complète",
-      "Référencement de méthodes, skills et workflows",
-      "Pensé pour partager les connaissances avec des amis et la communauté",
+      "Application Next.js avec comptes utilisateurs (Supabase)",
+      "Trois niveaux d'offre (Découverte, Plus, Pro) avec droits vérifiés côté serveur",
+      "Serveur MCP réservé aux abonnés Pro, sécurisé par OAuth 2.1",
+      "Paiement Stripe préparé, activé seulement après les tests",
     ],
-    tags: ["Web", "Vercel", "Documentation", "IA"],
+    tags: ["Next.js", "Supabase", "Stripe", "MCP", "Vercel", "IA"],
     category: "Web",
-    link: { href: "https://claude-code-harone1.vercel.app", label: "Voir le site live" },
+    link: { href: "https://claude-mastery-saas.vercel.app", label: "Voir l'aperçu" },
     featured: true,
   },
 ];
@@ -358,7 +356,7 @@ export const syntheseColumns: SyntheseColumn[] = [
 
 export const syntheseRows: SyntheseRow[] = [
   {
-    group: "Réalisation en cours de formation",
+    group: "Réalisations en cours de formation",
     items: [
       {
         label: "Analyse des besoins réseau (refonte infrastructure GSB)",

@@ -7,12 +7,12 @@ import { profile, socials } from "@/lib/portfolio-data";
 
 // Les réalisations présentées par la roue, dans un ordre logique.
 const SECTIONS: WorksWheelItem[] = [
-  { title: "Stage SNS", image: "/images/stage/baie-brassage.jpg", href: "/stage" },
-  { title: "Site SNS", image: "/images/wheel/sns.jpg", href: socials.company },
-  { title: "Labo GSB", image: "/images/gsb/topologie.jpg", href: "/gsb" },
-  { title: "Eureka BTP", image: "/images/wheel/eureka.jpg", href: "https://eurekabtp-site.vercel.app" },
-  { title: "Bibli IA", image: "/images/wheel/bibli.jpg", href: socials.bibliIa },
-  { title: "Synthèse E5", image: "/images/gsb/plan-adressage.jpg", href: "/portfolio#synthese" },
+  { title: "Stage SNS", image: "/images/wheel/stage.svg", href: "/stage" },
+  { title: "Site SNS", image: "/images/wheel/dev-sns.svg", href: socials.company },
+  { title: "Labo GSB", image: "/images/wheel/reseau.svg", href: "/gsb" },
+  { title: "Eureka BTP", image: "/images/wheel/dev-eureka.svg", href: "https://eurekabtp-site.vercel.app" },
+  { title: "Bibli IA", image: "/images/wheel/saas.svg", href: socials.bibliIa },
+  { title: "Synthèse E5", image: "/images/wheel/synthese.svg", href: "/portfolio#synthese" },
 ];
 
 export function HomeWheel() {

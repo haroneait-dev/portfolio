@@ -39,8 +39,8 @@ export function Contact() {
               </h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
                 Actuellement en{" "}
-                <strong className="text-foreground">alternance chez PARROT</strong> en
-                administration systèmes. N&apos;hésitez pas à me contacter pour échanger.
+                <strong className="text-foreground">alternance chez PARROT</strong>{" "}
+                en                 administration systèmes. N&apos;hésitez pas à me contacter pour échanger.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">

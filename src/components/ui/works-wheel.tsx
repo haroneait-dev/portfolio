@@ -260,6 +260,7 @@ export function WorksWheel({
   }, [to, last]);
 
   const drag = React.useRef<number | null>(null);
+  const dragged = React.useRef(0);
   const settling = React.useRef(0);
 
   return (
@@ -281,12 +282,23 @@ export function WorksWheel({
         style={{ perspective: `${metrics.depth}px` }}
         onPointerDown={(event) => {
           drag.current = event.clientY;
-          event.currentTarget.setPointerCapture(event.pointerId);
+          dragged.current = 0;
         }}
         onPointerMove={(event) => {
           if (drag.current === null) return;
-          to(target.current + (drag.current - event.clientY) / DRAG_UNITS);
+          const dy = drag.current - event.clientY;
+          dragged.current += Math.abs(dy);
+          // Capture only once it is a real drag, so a plain click still
+          // reaches the card's link.
+          if (dragged.current > 6 && !event.currentTarget.hasPointerCapture(event.pointerId)) {
+            event.currentTarget.setPointerCapture(event.pointerId);
+          }
+          to(target.current + dy / DRAG_UNITS);
           drag.current = event.clientY;
+        }}
+        onClickCapture={(event) => {
+          // A drag that ends over a card must not open it.
+          if (dragged.current > 6) event.preventDefault();
         }}
         onPointerUp={() => {
           // Land on an item rather than between two.
@@ -313,6 +325,9 @@ export function WorksWheel({
                   role="option"
                   aria-selected={i === active}
                   href={item.href}
+                  {...(item.href?.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   ref={(node: HTMLElement | null) => {
                     cardRefs.current[i] = node;
                   }}

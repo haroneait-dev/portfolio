@@ -13,7 +13,7 @@ export function Certifications() {
         <SectionHeading
           eyebrow="Certifications"
           title="Sécurité & conformité"
-          description="Des certifications reconnues pour ancrer les bonnes pratiques de cybersécurité et de protection des données."
+          description="Une certification qui ancre les bonnes pratiques de protection des données."
         />
 
         <div className="mx-auto mt-12 grid max-w-2xl gap-6 sm:grid-cols-2">
