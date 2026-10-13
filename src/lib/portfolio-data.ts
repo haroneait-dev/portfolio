@@ -230,7 +230,7 @@ export const timeline: TimelineEntry[] = [
   {
     title: "Alternance Technicien Systèmes",
     place: "PARROT",
-    period: "Depuis 2026",
+    period: "Depuis le 1er septembre 2026",
     description:
       "Gestion du parc Linux (principalement) et Windows : vérification de la connectivité réseau des postes, préparation et réparation de postes, administration des comptes utilisateurs et raccordement d'un serveur.",
     kind: "experience",
