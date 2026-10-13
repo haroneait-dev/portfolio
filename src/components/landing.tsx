@@ -1,262 +1,193 @@
 "use client";
 
-import { memo, useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import {
   Briefcase,
   Mail,
+  Library,
   ArrowRight,
   ArrowUpRight,
-  X,
   type LucideIcon,
 } from "lucide-react";
-import { GlassEffect, GlassFilter } from "@/components/ui/liquid-glass";
 import { profile, socials } from "@/lib/portfolio-data";
 
-const WATER_BG =
-  'url("https://images.unsplash.com/photo-1432251407527-504a6b4174a2?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center';
-
-const CLAUDE_ICON =
-  "https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/a13d1acfd046f503f987c1c95af582c8_low_res_Claude.png";
-
-type DockItem = {
+type Card = {
   label: string;
   description: string;
   href: string;
   cta: string;
   external?: boolean;
-  img?: string;
-  Icon?: LucideIcon;
-  gradient?: string;
+  badge?: string;
+  Icon: LucideIcon;
+  accent: string;
 };
 
-const dockItems: DockItem[] = [
+const cards: Card[] = [
   {
-    label: "Claude Mastery",
+    label: "Bibli IA",
     description:
-      "Plateforme web que j'ai conçue pour apprendre à maîtriser l'IA Claude : méthodes, « skills », workflows et ressources, organisés pour la communauté.",
-    href: socials.claudeMastery,
-    cta: "Visiter le site",
+      "Mon projet SaaS : fiches pratiques et packs de contexte pour mieux se faire comprendre par Claude et ChatGPT, avec abonnements et serveur MCP.",
+    href: socials.bibliIa,
+    cta: "Voir l'aperçu",
     external: true,
-    img: CLAUDE_ICON,
+    badge: "Bientôt",
+    Icon: Library,
+    accent: "from-emerald-400 to-teal-500",
   },
   {
     label: "Mon stage",
     description:
-      "Ma page dédiée au stage chez Sam Network Solutions : présentation de l'entreprise, missions, compétences développées et photos (baie de brassage, caméras IP/PTZ, supervision…).",
+      "Sam Network Solutions : vidéosurveillance IP, baie de brassage, configuration switch/routeur et site web de l'entreprise.",
     href: "/stage",
     cta: "Voir la page du stage",
     Icon: Briefcase,
-    gradient: "from-amber-500 to-orange-500",
+    accent: "from-amber-400 to-orange-500",
   },
   {
     label: "Contact",
     description:
-      "Actuellement en alternance chez PARROT. Retrouve mon email, mon téléphone, mon LinkedIn et mon CV à télécharger.",
+      "En alternance chez PARROT. Email, téléphone, LinkedIn et CV à télécharger.",
     href: "/portfolio#contact",
     cta: "Me contacter",
     Icon: Mail,
-    gradient: "from-sky-500 to-blue-600",
+    accent: "from-sky-400 to-blue-600",
   },
 ];
 
-function TileVisual({ item, size = "md" }: { item: DockItem; size?: "md" | "sm" }) {
-  const box = size === "sm" ? "h-12 w-12" : "h-14 w-14 sm:h-16 sm:w-16";
-  const icon = size === "sm" ? "h-6 w-6" : "h-7 w-7 sm:h-8 sm:w-8";
-  if (item.img) {
-    return (
-      <img
-        src={item.img}
-        alt={item.label}
-        className={`${box} rounded-2xl object-cover`}
-      />
-    );
-  }
-  return (
-    <div
-      className={`flex ${box} items-center justify-center rounded-2xl bg-gradient-to-br ${item.gradient} shadow-lg`}
-    >
-      {item.Icon ? <item.Icon className={`${icon} text-white`} /> : null}
-    </div>
-  );
-}
-
-/**
- * Isolated, memoized background layer.
- * Animated with `transform` (GPU/compositor) so it never restarts when the
- * page re-renders on icon clicks — and it never re-renders thanks to memo().
- */
-const WaterBackground = memo(function WaterBackground() {
-  return (
-    <div
-      className="absolute inset-0"
-      aria-hidden
-      style={{
-        background: WATER_BG,
-        animation: "moveBackground 60s linear infinite",
-      }}
-    />
-  );
-});
+const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 export function Landing() {
-  const [active, setActive] = useState<DockItem | null>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
 
+  // Halo qui suit la souris (via variables CSS, sans re-render)
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActive(null);
+    const el = glowRef.current;
+    if (!el) return;
+    const onMove = (e: PointerEvent) => {
+      el.style.setProperty("--x", `${e.clientX}px`);
+      el.style.setProperty("--y", `${e.clientY}px`);
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("pointermove", onMove);
+    return () => window.removeEventListener("pointermove", onMove);
   }, []);
 
   return (
-    <div
-      className="relative flex min-h-svh w-full flex-col items-center justify-center overflow-hidden px-6 py-16"
-    >
-      {/* Animated, isolated water background */}
-      <WaterBackground />
-
-      <GlassFilter />
-
-      {/* Soft scrim for text readability over bright water */}
+    <div className="relative flex min-h-svh w-full flex-col items-center justify-center overflow-hidden bg-slate-950 px-4 py-16 text-white">
+      {/* Grille */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(2,6,23,0.25),rgba(2,6,23,0.5))]"
         aria-hidden
+        className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
+      />
+      {/* Halos de couleur animés */}
+      <motion.div
+        aria-hidden
+        className="absolute -left-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-blue-600/25 blur-3xl"
+        animate={{ x: [0, 80, 0], y: [0, 60, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        aria-hidden
+        className="absolute -bottom-40 -right-40 h-[28rem] w-[28rem] rounded-full bg-emerald-500/20 blur-3xl"
+        animate={{ x: [0, -70, 0], y: [0, -50, 0] }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* Halo souris */}
+      <div
+        ref={glowRef}
+        aria-hidden
+        className="pointer-events-none absolute inset-0 [background:radial-gradient(500px_circle_at_var(--x,50%)_var(--y,50%),rgba(56,189,248,0.10),transparent_60%)]"
       />
 
-      <div className="relative z-10 flex flex-col items-center gap-8 text-center">
-        {/* Welcome */}
+      <div className="relative z-10 flex w-full max-w-5xl flex-col items-center gap-12 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+          transition={{ duration: 0.7, ease }}
         >
-          <p className="text-base font-medium text-white/90 drop-shadow-md sm:text-lg">
-            Bienvenue 👋
-          </p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl">
-            Je m&apos;appelle {profile.firstName}
+          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-sm font-medium text-emerald-300">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            En alternance chez PARROT
+          </span>
+          <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-7xl">
+            {profile.firstName}{" "}
+            <span className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">
+              {profile.lastName}
+            </span>
           </h1>
-          <p className="mx-auto mt-3 max-w-md text-base text-white/90 drop-shadow-md sm:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-base text-white/70 sm:text-lg">
             {profile.title} · BTS SIO option SISR
           </p>
-          <p className="mt-2 text-sm text-white/70 drop-shadow-md">
-            Clique sur une icône pour découvrir ce qu&apos;elle contient
-          </p>
         </motion.div>
 
-        {/* Liquid glass dock */}
-        <motion.div
-          initial={{ opacity: 0, y: 24, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="max-w-full overflow-x-auto pb-2"
-        >
-          <GlassEffect className="w-fit rounded-3xl p-3">
-            <div className="flex items-start justify-center gap-3 px-1 sm:gap-4">
-              {dockItems.map((item) => {
-                const isActive = active?.label === item.label;
-                return (
-                  <button
-                    key={item.label}
-                    type="button"
-                    onClick={() => setActive(isActive ? null : item)}
-                    aria-label={item.label}
-                    aria-pressed={isActive}
-                    className="group flex w-[5.5rem] flex-col items-center gap-2 rounded-2xl p-1 text-center sm:w-24"
+        <div className="grid w-full gap-4 sm:grid-cols-3">
+          {cards.map((card, i) => {
+            const inner = (
+              <>
+                <div className="flex items-center justify-between">
+                  <div
+                    className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${card.accent} shadow-lg`}
                   >
-                    <span
-                      className={`transition-transform duration-500 group-hover:scale-110 ${
-                        isActive ? "scale-110" : ""
-                      }`}
-                      style={{
-                        transitionTimingFunction: "cubic-bezier(0.175, 0.885, 0.32, 2.2)",
-                      }}
-                    >
-                      <TileVisual item={item} />
-                    </span>
-                    <span className="line-clamp-2 text-[11px] font-medium leading-tight text-white drop-shadow">
-                      {item.label}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </GlassEffect>
-        </motion.div>
-
-        {/* Explanation card (shown on icon click) */}
-        <AnimatePresence mode="wait">
-          {active && (
-            <motion.div
-              key={active.label}
-              initial={{ opacity: 0, y: 12, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.97 }}
-              transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-            >
-              <GlassEffect className="w-[min(92vw,26rem)] rounded-3xl p-5">
-                <div className="w-full text-left text-white">
-                  <div className="flex items-start gap-3">
-                    <TileVisual item={active} size="sm" />
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-base font-bold">{active.label}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-white/85">
-                        {active.description}
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setActive(null)}
-                      aria-label="Fermer"
-                      className="rounded-md p-1 text-white/60 transition-colors hover:bg-white/10 hover:text-white"
-                    >
-                      <X className="h-4 w-4" />
-                    </button>
+                    <card.Icon className="h-5 w-5 text-white" />
                   </div>
-
-                  <div className="mt-4">
-                    {active.external ? (
-                      <a
-                        href={active.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-white/90"
-                      >
-                        {active.cta}
-                        <ArrowUpRight className="h-4 w-4" />
-                      </a>
-                    ) : (
-                      <Link
-                        href={active.href}
-                        className="inline-flex items-center gap-1.5 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-white/90"
-                      >
-                        {active.cta}
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    )}
-                  </div>
+                  {card.badge && (
+                    <span className="rounded-full border border-white/15 px-2.5 py-0.5 text-xs text-white/70">
+                      {card.badge}
+                    </span>
+                  )}
                 </div>
-              </GlassEffect>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                <h2 className="mt-4 text-lg font-semibold">{card.label}</h2>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-white/60">
+                  {card.description}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-sky-300 transition-colors group-hover:text-sky-200">
+                  {card.cta}
+                  {card.external ? (
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  ) : (
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  )}
+                </span>
+              </>
+            );
+            const cls =
+              "group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.06]";
+            return (
+              <motion.div
+                key={card.label}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.15 + i * 0.1, ease }}
+              >
+                {card.external ? (
+                  <a href={card.href} target="_blank" rel="noopener noreferrer" className={cls}>
+                    {inner}
+                  </a>
+                ) : (
+                  <Link href={card.href} className={cls}>
+                    {inner}
+                  </Link>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
 
-        {/* Button to portfolio */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: [0.21, 0.47, 0.32, 0.98] }}
+          transition={{ duration: 0.7, delay: 0.5, ease }}
         >
-          <Link href="/portfolio" className="block">
-            <GlassEffect className="rounded-3xl px-9 py-5 transition-all duration-700 hover:px-10 hover:py-6">
-              <span className="flex items-center gap-2 text-lg font-semibold text-white sm:text-xl">
-                Découvrir mon portfolio
-                <ArrowRight className="h-5 w-5" />
-              </span>
-            </GlassEffect>
+          <Link
+            href="/portfolio"
+            className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-slate-900 shadow-[0_0_40px_rgba(56,189,248,0.25)] transition-all hover:shadow-[0_0_60px_rgba(56,189,248,0.4)] sm:text-lg"
+          >
+            Découvrir mon portfolio
+            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
       </div>

@@ -13,7 +13,7 @@ import { Timeline } from "@/components/sections/timeline";
 import { Contact } from "@/components/sections/contact";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Harone Ait Ouakli · Technicien Systèmes & Réseaux",
+  title: "Portfolio — Harone Ait Ouakli · Technicien Helpdesk & Systèmes",
   description:
     "Portfolio de Harone Ait Ouakli, étudiant en BTS SIO option SISR. Projets réseau (Labo GSB, VLAN), stage en vidéosurveillance IP, certification CNIL. En alternance chez PARROT.",
 };

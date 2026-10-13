@@ -7,7 +7,7 @@ export const profile = {
   firstName: "Harone",
   lastName: "Ait Ouakli",
   fullName: "Harone Ait Ouakli",
-  title: "Technicien Systèmes & Réseaux",
+  title: "Technicien Helpdesk & Systèmes",
   subtitle: "Étudiant BTS SIO — option SISR",
   location: "77340 Pontault-Combault, France",
   email: "h.ait-ouakli@ecole-ipssi.net",
@@ -228,7 +228,7 @@ export type TimelineEntry = {
 
 export const timeline: TimelineEntry[] = [
   {
-    title: "Alternance Technicien Systèmes",
+    title: "Alternance Technicien Helpdesk",
     place: "PARROT",
     period: "Depuis le 1er septembre 2026",
     description:

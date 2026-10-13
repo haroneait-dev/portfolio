@@ -16,7 +16,7 @@ const siteUrl = "https://harone-portfolio.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Harone Ait Ouakli — Technicien Systèmes & Réseaux",
+  title: "Harone Ait Ouakli — Technicien Helpdesk & Systèmes",
   description:
     "Portfolio de Harone Ait Ouakli, étudiant en BTS SIO option SISR à l'IPSSI. En alternance chez PARROT en administration systèmes Linux & Windows. Projets : infrastructure VLAN (Labo GSB), vidéosurveillance IP, câblage et configuration réseau.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Harone Ait Ouakli" }],
   openGraph: {
-    title: "Harone Ait Ouakli — Technicien Systèmes & Réseaux",
+    title: "Harone Ait Ouakli — Technicien Helpdesk & Systèmes",
     description:
       "Étudiant BTS SIO option SISR en alternance chez PARROT. Réseaux, systèmes et sécurité.",
     url: siteUrl,
