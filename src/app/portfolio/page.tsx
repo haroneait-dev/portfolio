@@ -15,7 +15,7 @@ import { Contact } from "@/components/sections/contact";
 export const metadata: Metadata = {
   title: "Portfolio — Harone Ait Ouakli · Technicien Systèmes & Réseaux",
   description:
-    "Portfolio de Harone Ait Ouakli, étudiant en BTS SIO option SISR. Projets réseau (Labo GSB, VLAN), stage en vidéosurveillance IP, certifications CNIL & ANSSI. En recherche d'alternance.",
+    "Portfolio de Harone Ait Ouakli, étudiant en BTS SIO option SISR. Projets réseau (Labo GSB, VLAN), stage en vidéosurveillance IP, certification CNIL. En alternance chez PARROT.",
 };
 
 export default function PortfolioPage() {

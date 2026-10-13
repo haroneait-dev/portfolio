@@ -19,7 +19,7 @@ const fadeUp = {
 
 const stats = [
   { value: "3+", label: "Projets réalisés" },
-  { value: "1", label: "Stage en entreprise" },
+  { value: "2", label: "Expériences en entreprise" },
   { value: "1", label: "Certification" },
   { value: "SISR", label: "BTS SIO" },
 ];
@@ -54,7 +54,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-400" />
           </span>
-          Disponible pour une alternance
+          En alternance chez PARROT
         </motion.div>
 
         <motion.h1

@@ -17,8 +17,8 @@ export function Footer() {
               {profile.fullName}
             </div>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              {profile.title} — en recherche d&apos;alternance dans les réseaux et
-              l&apos;administration systèmes.
+              {profile.title} — en alternance chez PARROT (administration
+              systèmes Linux & Windows).
             </p>
           </div>
 

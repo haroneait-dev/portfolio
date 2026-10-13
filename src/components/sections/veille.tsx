@@ -65,12 +65,12 @@ export function Veille() {
               {veille.contribution}
             </p>
             <a
-              href={socials.claudeMastery}
+              href={socials.bibliIa}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
             >
-              Voir Claude Mastery
+              Voir Bibli IA
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </Reveal>

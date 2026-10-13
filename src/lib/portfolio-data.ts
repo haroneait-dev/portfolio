@@ -15,7 +15,7 @@ export const profile = {
   phoneHref: "+33749411083",
   cvPath: "/cv/Harone-Ait-Ouakli-CV.pdf",
   availability:
-    "Recherche une alternance en réseaux & administration systèmes — rythme 1 semaine en formation / 1 semaine en entreprise, dès que possible.",
+    "En alternance chez PARROT : administration systèmes Linux & Windows, préparation de postes et gestion des comptes utilisateurs.",
   pitch:
     "Passionné par les réseaux et l'administration systèmes, je me forme en BTS SIO option SISR à l'IPSSI. De la conception d'architectures segmentées par VLAN à l'installation de vidéosurveillance IP sur le terrain, j'aime concevoir, déployer et sécuriser des infrastructures fiables.",
   badges: ["Réseaux", "Administration système", "Cybersécurité", "Permis B"],
@@ -26,6 +26,7 @@ export const socials = {
   phone: `tel:${profile.phoneHref}`,
   linkedin: "https://www.linkedin.com/in/harone-ait-ouakli-3478a83a1",
   claudeMastery: "https://claude-code-harone1.vercel.app",
+  bibliIa: "https://claude-mastery-saas.vercel.app",
   company: "https://samnetworksolutions.fr",
 };
 
@@ -54,7 +55,9 @@ export const skillCategories: SkillCategory[] = [
     icon: "server",
     description: "Administration et virtualisation.",
     items: [
+      "Administration de postes Linux",
       "Systèmes Windows",
+      "Gestion des comptes utilisateurs",
       "Machines virtuelles (VM)",
       "VMware",
       "Services DHCP & DNS",
@@ -76,6 +79,8 @@ export const skillCategories: SkillCategory[] = [
     icon: "tools",
     description: "Interventions et déploiement matériel.",
     items: [
+      "Préparation & réparation de postes",
+      "Raccordement d'un serveur en baie",
       "Câblage RJ45 & baie de brassage",
       "Configuration switch & routeur",
       "Bornes Wi-Fi",
@@ -222,6 +227,14 @@ export type TimelineEntry = {
 };
 
 export const timeline: TimelineEntry[] = [
+  {
+    title: "Alternance Technicien Systèmes",
+    place: "PARROT",
+    period: "Depuis 2026",
+    description:
+      "Gestion du parc Linux (principalement) et Windows : vérification de la connectivité réseau des postes, préparation et réparation de postes, administration des comptes utilisateurs et raccordement d'un serveur.",
+    kind: "experience",
+  },
   {
     title: "Stage Technicien Informatique & Réseaux",
     place: "Sam Network Solutions",
@@ -398,25 +411,46 @@ export const syntheseRows: SyntheseRow[] = [
       },
     ],
   },
+  {
+    group: "Réalisations en milieu professionnel — Alternance PARROT",
+    items: [
+      {
+        label: "Suivi des postes Linux & Windows et de leur connexion au réseau",
+        marks: ["C", "D"],
+      },
+      {
+        label: "Préparation et réparation de postes de travail",
+        marks: ["D", "G"],
+      },
+      {
+        label: "Création et administration des comptes utilisateurs",
+        marks: ["C", "D"],
+      },
+      {
+        label: "Installation physique et raccordement d'un serveur",
+        marks: ["C", "G"],
+      },
+    ],
+  },
 ];
 
-/** Veille technologique (attendu E5) — adossée au projet Claude Mastery. */
+/** Veille technologique (attendu E5) — adossée au projet Bibli IA. */
 export const veille = {
-  subject: "L'IA générative & l'écosystème Claude",
+  subject: "L'IA générative au service des utilisateurs",
   intro:
-    "Ma veille porte sur l'intelligence artificielle générative, et plus particulièrement l'écosystème Claude (Anthropic) : un domaine qui évolue très rapidement (nouveaux modèles, agents, « skills », MCP, outils). Suivre cette actualité est indispensable pour maintenir et enrichir mon site Claude Mastery.",
+    "Ma veille porte sur l'IA générative (Claude, ChatGPT) et ses usages concrets : un domaine qui évolue très vite (nouveaux modèles, agents, protocole MCP, offres et tarifs). Je l'applique dans Bibli IA, un projet SaaS qui aide les personnes à mieux se faire comprendre par Claude ou ChatGPT.",
   points: [
-    "Nouveaux modèles & capacités (raisonnement, agents, fenêtres de contexte)",
-    "Agents & automatisation (MCP, outils, orchestration)",
-    "Bonnes pratiques de prompting et de sécurité des IA",
-    "Cas d'usage concrets pour l'IT, les réseaux et la cybersécurité",
+    "Nouveaux modèles, capacités et coûts (Claude, ChatGPT)",
+    "Protocole MCP et connexion sécurisée des IA (OAuth 2.1, clés révocables)",
+    "Bonnes pratiques de rédaction des demandes et de contexte",
+    "Modèle SaaS : abonnements, droits d'accès vérifiés côté serveur",
   ],
   sources: [
-    "Documentation & blog d'Anthropic",
-    "Changelogs & notes de version",
-    "Communautés (Reddit r/ClaudeAI, X, GitHub)",
+    "Documentation & changelogs d'Anthropic et d'OpenAI",
+    "Spécification MCP et docs Supabase / Stripe / Vercel",
+    "Communautés (Reddit, X, GitHub)",
     "Hacker News & newsletters spécialisées IA",
   ],
   contribution:
-    "Je centralise et vulgarise ces connaissances (méthodes, skills, workflows) sur Claude Mastery, un site que je tiens à jour pour la communauté.",
+    "Je transforme cette veille en fiches pratiques et en packs de contexte prêts à l'emploi sur Bibli IA (Next.js, Supabase, Vercel), avec une offre gratuite, des niveaux Plus et Pro, et un serveur MCP réservé aux abonnés Pro.",
 };

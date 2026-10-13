@@ -100,7 +100,7 @@ function buildIndex(): SearchEntry[] {
     action: "external",
   });
   entries.push({
-    label: "Disponibilité / alternance",
+    label: "Contact / alternance",
     group: "Action",
     href: "#contact",
     keywords: "alternance recrutement disponible embauche",
@@ -115,7 +115,7 @@ export function SiteSearch({ tone = "light" }: { tone?: "light" | "dark" }) {
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
-  const index = useMemo(buildIndex, []);
+  const index = useMemo(() => buildIndex(), []);
 
   const results = useMemo(() => {
     const q = normalize(query.trim());
@@ -127,10 +127,6 @@ export function SiteSearch({ tone = "light" }: { tone?: "light" | "dark" }) {
       .filter((e) => normalize(`${e.label} ${e.keywords ?? ""} ${e.group}`).includes(q))
       .slice(0, 10);
   }, [query, index]);
-
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [query]);
 
   // Open with Cmd/Ctrl+K, close with Escape
   useEffect(() => {
@@ -159,6 +155,7 @@ export function SiteSearch({ tone = "light" }: { tone?: "light" | "dark" }) {
   const navigate = (entry: SearchEntry) => {
     setOpen(false);
     setQuery("");
+    setActiveIndex(0);
     if (entry.action === "download") {
       const a = document.createElement("a");
       a.href = entry.href;
@@ -242,7 +239,10 @@ export function SiteSearch({ tone = "light" }: { tone?: "light" | "dark" }) {
               <input
                 ref={inputRef}
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setActiveIndex(0);
+                }}
                 onKeyDown={onInputKeyDown}
                 placeholder="Rechercher une compétence, un projet, une section…"
                 className="h-14 w-full bg-transparent text-base outline-none placeholder:text-muted-foreground"

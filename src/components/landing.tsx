@@ -35,7 +35,7 @@ const dockItems: DockItem[] = [
   {
     label: "Claude Mastery",
     description:
-      "Plateforme web que j'ai conçue pour apprendre à maîtriser l'IA Claude : méthodes, « skills », workflows et ressources, organisés pour la communauté. C'est aussi le support de ma veille technologique.",
+      "Plateforme web que j'ai conçue pour apprendre à maîtriser l'IA Claude : méthodes, « skills », workflows et ressources, organisés pour la communauté.",
     href: socials.claudeMastery,
     cta: "Visiter le site",
     external: true,
@@ -53,7 +53,7 @@ const dockItems: DockItem[] = [
   {
     label: "Contact",
     description:
-      "Je recherche une alternance en réseaux & administration systèmes. Retrouve mon email, mon téléphone, mon LinkedIn et mon CV à télécharger.",
+      "Actuellement en alternance chez PARROT. Retrouve mon email, mon téléphone, mon LinkedIn et mon CV à télécharger.",
     href: "/portfolio#contact",
     cta: "Me contacter",
     Icon: Mail,

@@ -298,7 +298,7 @@ export default function StagePage() {
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border bg-card px-6 text-sm font-medium text-foreground transition-colors hover:bg-accent"
               >
                 <ArrowLeft className="h-4 w-4" />
-                Retour à l'accueil
+                Retour à l&apos;accueil
               </Link>
             </div>
           </div>

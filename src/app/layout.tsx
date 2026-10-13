@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Harone Ait Ouakli — Technicien Systèmes & Réseaux",
   description:
-    "Portfolio de Harone Ait Ouakli, étudiant en BTS SIO option SISR à l'IPSSI. À la recherche d'une alternance en systèmes, réseaux et administration. Projets : infrastructure VLAN (Labo GSB), vidéosurveillance IP, câblage et configuration réseau.",
+    "Portfolio de Harone Ait Ouakli, étudiant en BTS SIO option SISR à l'IPSSI. En alternance chez PARROT en administration systèmes Linux & Windows. Projets : infrastructure VLAN (Labo GSB), vidéosurveillance IP, câblage et configuration réseau.",
   keywords: [
     "BTS SIO",
     "SISR",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Harone Ait Ouakli — Technicien Systèmes & Réseaux",
     description:
-      "Étudiant BTS SIO option SISR en recherche d'alternance. Réseaux, systèmes et sécurité.",
+      "Étudiant BTS SIO option SISR en alternance chez PARROT. Réseaux, systèmes et sécurité.",
     url: siteUrl,
     siteName: "Portfolio — Harone Ait Ouakli",
     locale: "fr_FR",
