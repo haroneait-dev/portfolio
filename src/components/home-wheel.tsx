@@ -3,25 +3,16 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { WorksWheel, type WorksWheelItem } from "@/components/ui/works-wheel";
-import { profile } from "@/lib/portfolio-data";
+import { profile, socials } from "@/lib/portfolio-data";
 
-// Chaque carte de la roue ouvre une section (ou une page) du portfolio.
+// Les réalisations présentées par la roue, dans un ordre logique.
 const SECTIONS: WorksWheelItem[] = [
-  { title: "À propos", image: "/images/stage/maintenance-pc.jpg", href: "/portfolio#a-propos" },
-  { title: "Compétences", image: "/images/stage/equipements-reseau.jpg", href: "/portfolio#competences" },
+  { title: "Stage SNS", image: "/images/stage/baie-brassage.jpg", href: "/stage" },
+  { title: "Site SNS", image: "/images/wheel/sns.jpg", href: socials.company },
+  { title: "Labo GSB", image: "/images/gsb/topologie.jpg", href: "/gsb" },
+  { title: "Eureka BTP", image: "/images/wheel/eureka.jpg", href: "https://eurekabtp-site.vercel.app" },
+  { title: "Bibli IA", image: "/images/wheel/bibli.jpg", href: socials.bibliIa },
   { title: "Synthèse E5", image: "/images/gsb/plan-adressage.jpg", href: "/portfolio#synthese" },
-  { title: "Projets", image: "/images/gsb/topologie.jpg", href: "/portfolio#projets" },
-  { title: "Labo GSB", image: "/images/gsb/switchs-vlan.jpg", href: "/gsb" },
-  { title: "Stage", image: "/images/stage/baie-installee.jpg", href: "/stage" },
-  { title: "Certifications", image: "/images/stage/supervision.jpg", href: "/portfolio#certifications" },
-  {
-    title: "Veille · Bibli IA",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop",
-    href: "/portfolio#veille",
-  },
-  { title: "Parcours", image: "/images/stage/baie-brassage.jpg", href: "/portfolio#parcours" },
-  { title: "Contact", image: "/images/stage/mur-ecrans.jpg", href: "/portfolio#contact" },
 ];
 
 export function HomeWheel() {

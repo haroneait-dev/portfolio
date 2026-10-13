@@ -28,12 +28,6 @@ export function Contact() {
     >
       <div className="mx-auto w-full max-w-6xl px-6">
         <Reveal className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 sm:p-12">
-          {/* Decorative glow */}
-          <div
-            className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl"
-            aria-hidden
-          />
-
           <div className="relative grid gap-10 lg:grid-cols-2">
             <div>
               <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-primary">

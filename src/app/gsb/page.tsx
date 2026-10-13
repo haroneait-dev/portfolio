@@ -48,10 +48,6 @@ export default function GsbPage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden border-b border-border bg-muted/40 py-16 sm:py-20">
-          <div
-            className="pointer-events-none absolute -top-24 right-0 -z-10 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
-            aria-hidden
-          />
           <div className="mx-auto w-full max-w-5xl px-6">
             <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
               <Network className="h-3.5 w-3.5" />

@@ -1,68 +1,46 @@
-"use client";
+import { Network, Server, ShieldCheck, Wrench, type LucideIcon } from "lucide-react";
+import { SectionHeading } from "@/components/section-heading";
+import { skillCategories, type SkillCategory } from "@/lib/portfolio-data";
 
-import { Network, Server, ShieldCheck, Wrench } from "lucide-react";
-import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
-
-const skillsTimeline = [
-  {
-    id: 1,
-    title: "Réseaux",
-    date: "Cœur de métier",
-    content:
-      "Modélisation & configuration sous Cisco Packet Tracer, adressage IP & sous-réseaux, routage inter-VLAN, segmentation par VLAN.",
-    category: "Réseau",
-    icon: Network,
-    relatedIds: [2, 3],
-    status: "completed" as const,
-    energy: 90,
-  },
-  {
-    id: 2,
-    title: "Systèmes",
-    date: "Administration",
-    content:
-      "Systèmes Windows, machines virtuelles (VM), VMware, mise en place des services réseau DHCP & DNS.",
-    category: "Système",
-    icon: Server,
-    relatedIds: [1, 3],
-    status: "in-progress" as const,
-    energy: 70,
-  },
-  {
-    id: 3,
-    title: "Sécurité & Télécom",
-    date: "Sécurisation",
-    content:
-      "Sécurisation des accès réseau, vidéosurveillance IP (caméras IP/PTZ, NVR), sensibilisation cyber, conformité CNIL & RGPD.",
-    category: "Sécurité",
-    icon: ShieldCheck,
-    relatedIds: [1, 2, 4],
-    status: "in-progress" as const,
-    energy: 65,
-  },
-  {
-    id: 4,
-    title: "Terrain & Outils",
-    date: "Déploiement",
-    content:
-      "Câblage RJ45 & baie de brassage, configuration switch/routeur, bornes Wi-Fi, interventions terrain.",
-    category: "Terrain",
-    icon: Wrench,
-    relatedIds: [3],
-    status: "completed" as const,
-    energy: 80,
-  },
-];
+const icons: Partial<Record<SkillCategory["icon"], LucideIcon>> = {
+  network: Network,
+  server: Server,
+  shield: ShieldCheck,
+  tools: Wrench,
+};
 
 export function Skills() {
   return (
-    <section id="competences" className="scroll-mt-20">
-      <RadialOrbitalTimeline
-        eyebrow="Compétences"
-        title="Un socle technique réseaux & systèmes"
-        description="Des compétences acquises en formation, en stage et sur le terrain."
-        timelineData={skillsTimeline}
-      />
+    <section id="competences" className="scroll-mt-20 py-20 sm:py-24">
+      <div className="mx-auto w-full max-w-6xl px-6">
+        <SectionHeading
+          eyebrow="Compétences"
+          title="Un socle technique systèmes & réseaux"
+          description="Des compétences acquises en formation, en stage et en alternance."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          {skillCategories.map((cat) => {
+            const Icon = icons[cat.icon] ?? Wrench;
+            return (
+              <div key={cat.title} className="rounded-xl border border-border p-6">
+                <div className="flex items-center gap-3">
+                  <Icon className="h-5 w-5 text-primary" />
+                  <h3 className="font-semibold text-foreground">{cat.title}</h3>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">{cat.description}</p>
+                <ul className="mt-4 space-y-1.5 text-sm text-foreground/85">
+                  {cat.items.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted-foreground" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }

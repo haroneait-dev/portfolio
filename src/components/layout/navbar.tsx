@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, Download } from "lucide-react";
 import { LinkedinIcon } from "@/components/icons/linkedin";
@@ -17,22 +16,11 @@ import { SiteSearch } from "@/components/layout/site-search";
 import { navLinks, profile, socials } from "@/lib/portfolio-data";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+        "border-b border-border bg-background/80 backdrop-blur-md"
       )}
     >
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
@@ -40,26 +28,24 @@ export function Navbar() {
           href="/"
           className={cn(
             "flex items-center gap-2 font-bold tracking-tight transition-colors",
-            scrolled ? "text-foreground" : "text-white"
+            "text-foreground"
           )}
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-primary-foreground">
             HA
           </span>
-          <span className="hidden sm:inline">Harone Ait Ouakli</span>
+          <span className="hidden whitespace-nowrap sm:inline">Harone Ait Ouakli</span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-0.5 lg:flex">
+        <ul className="hidden items-center gap-0.5 xl:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  scrolled
-                    ? "text-muted-foreground hover:bg-accent hover:text-foreground"
-                    : "text-slate-200 hover:bg-white/10 hover:text-white"
+                  "whitespace-nowrap rounded-md px-2.5 py-2 text-sm font-medium transition-colors",
+                  "text-muted-foreground hover:bg-accent hover:text-foreground"
                 )}
               >
                 {link.label}
@@ -69,7 +55,7 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <SiteSearch tone={scrolled ? "light" : "dark"} />
+          <SiteSearch tone={"light"} />
           <a
             href={socials.linkedin}
             target="_blank"
@@ -77,9 +63,7 @@ export function Navbar() {
             aria-label="Profil LinkedIn"
             className={cn(
               "hidden h-9 w-9 items-center justify-center rounded-lg border transition-colors sm:inline-flex",
-              scrolled
-                ? "border-border text-muted-foreground hover:bg-accent hover:text-foreground"
-                : "border-white/20 text-slate-200 hover:bg-white/10"
+              "border-border text-muted-foreground hover:bg-accent hover:text-foreground"
             )}
           >
             <LinkedinIcon className="h-4 w-4" />
@@ -97,7 +81,7 @@ export function Navbar() {
           <Sheet>
             <SheetTrigger
               render={
-                <Button variant="outline" size="icon" className="lg:hidden" aria-label="Menu" />
+                <Button variant="outline" size="icon" className="xl:hidden" aria-label="Menu" />
               }
             >
               <Menu className="h-5 w-5" />
