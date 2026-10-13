@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Landing } from "@/components/landing";
+import { HomeWheel } from "@/components/home-wheel";
 
 export const metadata: Metadata = {
   title: "Bienvenue — Harone Ait Ouakli",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <Landing />;
+  return <HomeWheel />;
 }
